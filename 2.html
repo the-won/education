@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body {margin: 0; padding: 0}
+		#sun {width: 60px; height: 60px; border-radius: 50%; background-color: red;}
+		#earth {width: 30px; height: 30px; border-radius: 50%; background-color: blue;}
+		#moon {width: 15px; height: 15px; border-radius: 50%; background-color: yellow;}
+	</style>
+
+</head>
+<body>
+	<div id="sun"></div>
+	<div id="earth"></div>
+	<div id="moon"></div>
+
+	<script type="text/javascript">
+		var sun = document.getElementById("sun");
+		var earth = document.getElementById("earth");
+		var moon = document.getElementById("moon");
+
+		var sunX = 350;
+		var sunY = 300;
+
+		sun.style.position = "absolute";
+		earth.style.position = "absolute";
+		moon.style.position = "absolute";
+
+		sun.style.left = sunX + "px";
+		sun.style.top = sunY + "px";
+
+		var earthAngle = 0;
+		var moonAngle = 0;
+
+		setInterval(function(){
+			var earthX = sunX + Math.cos(earthAngle) * 150;
+			var earthY = sunY + Math.sin(earthAngle) * 150;
+			var moonX = earthX + Math.cos(moonAngle) * 30;
+			var moonY = earthY + Math.sin(moonAngle) * 30;
+
+			earth.style.left = earthX + "px";
+			earth.style.top = earthY + "px";
+			moon.style.left = moonX + "px";
+			moon.style.top = moonY + "px";
+
+			earthAngle += 0.1;
+			moonAngle += 0.3;
+
+		}, 1000 / 30);
+	</script>
+
+	<style type="text/css">
+		* {border:3px solid #000}
+	</style>
+	<div id="outer">
+		<div id="inner">
+			<h1 class="header">Heading Tag</h1>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var outer = document.querySelector("#outer");
+		var inner = document.querySelector("#inner");
+		var header = document.querySelector(".header");
+
+		outer.onclick= function(e){
+			this.style.backgroundColor="red";
+			e.stopPropagation();
+		}
+		inner.onclick= function(e){
+			this.style.backgroundColor="green";
+			e.stopPropagation();
+		}
+		header.onclick= function(e){
+			this.style.backgroundColor="blue";
+			e.stopPropagation();
+		}
+		document.body.onclick= function(e){
+			this.style.backgroundColor="yellow";
+			e.stopPropagation();
+		}
+	</script>
+</body>
+</html>
