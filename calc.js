@@ -10,3 +10,5 @@ sub (a,b)=>{
 mul (a,b)=>{
 	return a*b;
 }
+
+// test
