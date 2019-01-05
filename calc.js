@@ -11,4 +11,6 @@ mul (a,b)=>{
 	return a*b;
 }
 
-// test
+div (a,b)=>{
+	return a/b;
+}
