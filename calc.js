@@ -14,3 +14,5 @@ mul (a,b)=>{
 div (a,b)=>{
 	return a/b;
 }
+
+dd
